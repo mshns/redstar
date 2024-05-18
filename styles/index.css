@@ -29,3 +29,75 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
 }
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: var(--secondary-color);
+}
+
+.logo {
+  font-weight: 700;
+  color: var(--primary-color);
+  transform: skew(-15deg);
+}
+
+.promotions {
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  display: flex;
+}
+
+.navigation-item {
+  position: relative;
+  margin-right: 40px;
+  color: var(--background-color);
+}
+
+.navigation-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20px;
+  height: 20px;
+  border-right: 2px solid var(--primary-color);
+  transform: skew(-15deg);
+}
+
+.navigation-link {
+  font-weight: 700;
+  color: var(--background-color);
+  transition: ease-in-out 0.2s;
+}
+
+.navigation-link:hover {
+  color: var(--primary-color);
+}
+
+.promotions-description {
+  color: var(--background-color);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  width: 50%;
+}
+
+.redstar {
+  width: 100%;
+  background-color: var(--primary-color);
+}
