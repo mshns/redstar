@@ -1,7 +1,6 @@
 :root {
   --primary-color: rgb(172, 13, 20);
   --secondary-color: rgb(30, 31, 28);
-  --text-color: rgb(0, 0, 0);
   --background-color: rgb(255, 255, 255);
 }
 
@@ -248,7 +247,6 @@ section {
   top: 0;
   width: 1.2em;
   height: 1.2em;
-
   background-image: url(../assets/icons/spade.png);
   background-size: cover;
 }
@@ -271,13 +269,13 @@ section {
   border: 0;
 }
 
-.promo-container {
+.section-promo {
   position: relative;
   width: 100%;
   background-image: url(../assets/icons/stars_pattern.png);
 }
 
-.promo-container::before {
+.section-promo::before {
   position: absolute;
   content: '';
   top: -5em;
@@ -291,11 +289,109 @@ section {
   z-index: 1000;
 }
 
-.section-promo {
+.section-promo .title {
+  color: var(--secondary-color);
+}
+
+.promo {
   position: relative;
   width: 36em;
   margin: 1em;
   padding: 1em 2em 0;
+  display: flex;
+  flex-direction: column;
   border-radius: 1em;
   background-color: var(--background-color);
+}
+
+.promo-image {
+  width: 100%;
+  border-radius: 1em;
+}
+
+.rakeback-title {
+  padding: 0.25em 0.5em;
+  margin-left: auto;
+  text-align: right;
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+  border-radius: 0.25em;
+  transform: skew(-15deg);
+}
+
+.promo .paragraph {
+  margin-top: 0;
+}
+
+.promo .paragraph:nth-child(6) {
+  margin-bottom: 0;
+  border: none;
+}
+
+.button {
+  padding: 0.5em 1.5em;
+  margin: 0 auto;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.25em;
+  color: var(--background-color);
+  background-color: var(--primary-color);
+
+  border-radius: 0.5em;
+  transition: ease-in-out 0.2s;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}
+
+.section-rakeback {
+  position: relative;
+  padding: 2em 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--background-color);
+  background-color: var(--secondary-color);
+}
+
+.rakeback-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rakeback-item {
+  width: 100%;
+  margin: 0.5em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: 1em;
+}
+
+.rakeback-name {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--background-color);
+}
+
+.rakeback-description {
+  margin: 0;
+  color: var(--background-color);
+}
+
+.rakeback-value {
+  margin: 0;
+  font-size: 3em;
+  font-weight: 700;
+  color: var(--background-color);
 }
