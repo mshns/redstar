@@ -1,5 +1,5 @@
 :root {
-  --primary-color: rgb(249, 89, 30);
+  --primary-color: rgb(172, 13, 20);
   --secondary-color: rgb(30, 31, 28);
   --text-color: rgb(0, 0, 0);
   --background-color: rgb(255, 255, 255);
@@ -7,11 +7,9 @@
 
 * {
   box-sizing: border-box;
-
   font-family: 'Play', sans-serif;
   font-weight: 400;
   font-style: normal;
-
   color: var(--secondary-color);
 }
 
@@ -21,74 +19,91 @@ html {
 
 body {
   margin: 0;
-  min-height: 100vh;
-
   display: flex;
   flex-direction: column;
-
-  color: var(--text-color);
   background-color: var(--background-color);
 }
 
-.redstar {
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-
-  background-color: var(--primary-color);
-}
-
-.title {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--background-color);
-}
-
 header {
+  position: relative;
+  padding: 2em 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-
   background-color: var(--secondary-color);
 }
 
+header::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 8em;
+  height: 8em;
+  background: url(../assets/icons/chip_l-f34.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+}
+
+header::after {
+  position: absolute;
+  content: '';
+  bottom: -8em;
+  right: 0;
+  width: 12em;
+  height: 12em;
+  background: url(../assets/icons/chip_l-b42b.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+}
+
 .logo {
+  font-size: 3em;
   font-weight: 700;
-  color: var(--primary-color);
+  line-height: 0.75em;
+  color: var(--background-color);
   transform: skew(-15deg);
 }
 
-.promotions {
+.header-promo {
   display: flex;
   flex-direction: column;
+}
+
+.navigation {
+  margin-left: auto;
+  z-index: 1000;
 }
 
 .navigation-list {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 0;
-
   display: flex;
 }
 
-.navigation-item {
+.navigation-item:not(:last-child) {
   position: relative;
-  margin-right: 40px;
-  color: var(--background-color);
+  margin-right: 2em;
 }
 
 .navigation-item:not(:last-child)::before {
-  content: '';
   position: absolute;
+  content: '';
   top: 0;
-  right: -20px;
-  height: 20px;
-  border-right: 2px solid var(--primary-color);
+  right: -1.1em;
+  height: 1.75em;
+  border-right: 0.2em solid var(--primary-color);
   transform: skew(-15deg);
 }
 
 .navigation-link {
+  font-size: 1.5em;
   font-weight: 700;
+  text-decoration: none;
   color: var(--background-color);
   transition: ease-in-out 0.2s;
 }
@@ -97,30 +112,112 @@ header {
   color: var(--primary-color);
 }
 
-.promotions-description {
+.header-promo-description {
+  margin: 0;
+  font-size: 1.5em;
   color: var(--background-color);
+  transform: skew(-15deg);
+}
+
+.link,
+.strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.primary {
+  color: var(--primary-color);
 }
 
 main {
-  padding: 40px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.redstar-container {
+section {
+  width: 100%;
+}
+
+.section-redstar {
+  position: relative;
+  background-image: url(../assets/icons/poker_bg.svg);
+  background-size: 100%;
+  background-position: center;
+  background-color: var(--primary-color);
+}
+
+.section-redstar::before {
+  position: absolute;
+  content: '';
+  top: 8em;
+  left: 0;
+  width: 15em;
+  height: 15em;
+  background: url(../assets/icons/ace_club.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+}
+
+.section-redstar::after {
+  position: absolute;
+  content: '';
+  bottom: 5em;
+  right: 0;
+  width: 15em;
+  height: 15em;
+  background: url(../assets/icons/card_spade.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+}
+
+.section-container {
+  max-width: 80em;
+  margin: 2em auto;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.title {
+  width: 100%;
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--background-color);
+}
+
+.subtitle {
+  font-size: 1.5em;
+  font-weight: 700;
 }
 
 .redstar-part {
-  width: 560px;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 10px;
+  position: relative;
+  width: 36em;
+  margin: 1em;
+  padding: 1em 2em 0;
+  border-radius: 1em;
   background-color: var(--background-color);
+}
+
+.redstar-part:nth-child(3):after {
+  position: absolute;
+  content: '';
+  bottom: 0.5em;
+  right: -0.5em;
+  width: 8em;
+  height: 8em;
+  background: url(../assets/icons/chip_l-e942.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.paragraph {
+  font-size: 1.1em;
 }
 
 .paragraph:not(:last-child) {
@@ -130,28 +227,37 @@ main {
 
 .advantage-list {
   list-style: none;
+  padding-left: 0;
 }
 
 .advantage {
   position: relative;
+  padding: 0 0 1em 2em;
+  margin: 1em 0;
+  font-size: 1.2em;
+}
+
+.advantage:not(:last-child) {
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .advantage::before {
   position: absolute;
   content: '';
-  left: -2em;
-  top: 0.2em;
-  width: 1em;
-  height: 1em;
+  left: 0;
+  top: 0;
+  width: 1.2em;
+  height: 1.2em;
 
   background-image: url(../assets/icons/spade.png);
-  background-size: contain;
+  background-size: cover;
 }
 
 .iframe-container {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
+  margin-bottom: 2em;
   height: 0;
   overflow: hidden;
 }
@@ -163,4 +269,33 @@ main {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.promo-container {
+  position: relative;
+  width: 100%;
+  background-image: url(../assets/icons/stars_pattern.png);
+}
+
+.promo-container::before {
+  position: absolute;
+  content: '';
+  top: -5em;
+  left: 0;
+  width: 8em;
+  height: 8em;
+  background: url(../assets/icons/chip_1a00a.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+}
+
+.section-promo {
+  position: relative;
+  width: 36em;
+  margin: 1em;
+  padding: 1em 2em 0;
+  border-radius: 1em;
+  background-color: var(--background-color);
 }
