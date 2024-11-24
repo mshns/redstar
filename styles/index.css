@@ -25,11 +25,12 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--background-color);
+  overflow-x: hidden;
 }
 
 header {
   position: relative;
-  padding: 2em 0;
+  padding: 2em;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -64,10 +65,14 @@ header::after {
 }
 
 .logo {
+  padding: 0.25em 0.5em;
+  border-radius: 0.25em;
   font-size: 3em;
   font-weight: 700;
   line-height: 0.75em;
+  white-space: nowrap;
   color: var(--background-color);
+  background-color: var(--primary-color);
   transform: skew(-15deg);
   z-index: 1000;
 }
@@ -77,48 +82,45 @@ header::after {
   flex-direction: column;
 }
 
-.navigation {
-  margin-left: auto;
+.header-promo-description {
+  max-width: 800px;
+  margin: 1em auto;
+  text-align: center;
+  font-size: 2em;
+  color: var(--background-color);
+  transform: skew(-15deg);
+}
+
+.header-promo-description .link {
+  background-color: var(--secondary-color);
 }
 
 .navigation-list {
   list-style: none;
   padding-left: 0;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.navigation-item:not(:last-child) {
-  position: relative;
-  margin-right: 2em;
-}
-
-.navigation-item:not(:last-child)::before {
-  position: absolute;
-  content: '';
-  top: 0;
-  right: -1.1em;
-  height: 1.75em;
-  border-right: 0.2em solid var(--primary-color);
+.navigation-item {
+  margin: 1em;
   transform: skew(-15deg);
+  z-index: 1000;
 }
 
 .navigation-link {
+  padding: 0.25em 0.5em;
+  color: var(--background-color);
+  background-color: var(--background-color-50);
+  border-radius: 0.25em;
   font-size: 1.5em;
   font-weight: 700;
-  text-decoration: none;
-  color: var(--background-color);
   transition: ease-in-out 0.2s;
 }
 
 .navigation-link:hover {
-  color: var(--primary-color);
-}
-
-.header-promo-description {
-  margin: 0;
-  font-size: 1.5em;
-  color: var(--background-color);
-  transform: skew(-15deg);
+  background-color: var(--primary-color);
 }
 
 .link,
@@ -306,6 +308,7 @@ section {
   background-color: var(--secondary-color);
 }
 
+.button.primary:hover,
 .button.secondary:hover {
   color: var(--primary-color);
   background-color: var(--background-color);
@@ -331,6 +334,34 @@ section {
   background-blend-mode: multiply;
 }
 
+.section-rakeback::before {
+  position: absolute;
+  content: '';
+  top: -60px;
+  left: 0;
+  width: 100px;
+  height: 236px;
+  transform: rotate(-180deg);
+  background: url(../assets/images/chip_right_100x236.webp);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.section-rakeback::after {
+  position: absolute;
+  content: '';
+  top: 100px;
+  right: -60px;
+  width: 171px;
+  height: 278px;
+  transform: rotate(-180deg);
+  background: url(../assets/images/chip_left_171x278.webp);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .rakeback-item {
   width: 100%;
   margin: 0.5em 1em;
@@ -340,6 +371,7 @@ section {
   border-radius: 1em;
   background-color: var(--primary-color-50);
   transition: ease-in-out 0.25s;
+  z-index: 1500;
 }
 
 .rakeback-item:hover {
@@ -452,8 +484,8 @@ section {
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--background-color);
-  background-color: var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: var(--background-color-50);
   border-radius: 0.25em;
   transform: skew(-15deg);
 }
@@ -465,4 +497,70 @@ section {
 .promo .paragraph:nth-child(6) {
   margin-bottom: 0;
   border: none;
+}
+
+@media (max-width: 1524px) {
+  header {
+    flex-direction: column;
+  }
+
+  .logo {
+    margin-left: auto;
+  }
+
+  .navigation-list {
+    justify-content: center;
+  }
+
+  .navigation-item {
+    min-width: 45%;
+  }
+
+  .navigation-link {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 860px) {
+  header {
+    flex-direction: column;
+  }
+
+  .logo {
+    margin-right: auto;
+  }
+
+  .navigation-list {
+    flex-direction: column;
+  }
+
+  .navigation-item {
+    min-width: 45%;
+  }
+
+  .navigation-link {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1.5em;
+  }
+
+  .header-promo-description {
+    font-size: 1.5em;
+  }
+
+  .navigation-item {
+    margin: 0.5em;
+  }
+
+  .navigation-link {
+    font-size: 1em;
+  }
 }
